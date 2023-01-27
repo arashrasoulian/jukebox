@@ -1,10 +1,10 @@
-package run.karl.starter
+package com.jukebox
 
 import com.natpryce.hamkrest.and
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
-import run.karl.starter.example.ExampleService
+import com.jukebox.example.ExampleService
 
 import com.natpryce.hamkrest.assertion.assert
 import com.natpryce.hamkrest.*

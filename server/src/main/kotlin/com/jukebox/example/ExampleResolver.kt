@@ -1,4 +1,4 @@
-package run.karl.starter.example
+package com.jukebox.example
 
 import com.coxautodev.graphql.tools.GraphQLResolver
 import org.springframework.stereotype.Component

@@ -1,4 +1,4 @@
-package run.karl.starter
+package com.jukebox
 
 import com.natpryce.hamkrest.and
 import com.natpryce.hamkrest.assertion.assert
@@ -9,9 +9,9 @@ import com.nhaarman.mockito_kotlin.mock
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
-import run.karl.starter.example.ExampleQueryResolver
-import run.karl.starter.example.ExampleResponse
-import run.karl.starter.example.ExampleService
+import com.jukebox.example.ExampleQueryResolver
+import com.jukebox.example.ExampleResponse
+import com.jukebox.example.ExampleService
 
 object ExampleQueryControllerSpec : Spek({
     describe("a very good controller") {

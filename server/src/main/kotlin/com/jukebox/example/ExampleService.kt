@@ -1,4 +1,4 @@
-package run.karl.starter.example
+package com.jukebox.example
 
 import org.springframework.stereotype.Service
 

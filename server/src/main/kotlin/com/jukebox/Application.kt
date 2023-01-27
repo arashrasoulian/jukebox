@@ -1,4 +1,4 @@
-package run.karl.starter
+package com.jukebox
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
