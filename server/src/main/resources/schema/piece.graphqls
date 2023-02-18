@@ -1,0 +1,10 @@
+type PieceResponse {
+    id: ID!
+    name: String
+    link: Url
+    duration: Long
+}
+
+type Query {
+    piece(id: ID!): PieceResponse
+}
