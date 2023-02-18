@@ -3,6 +3,13 @@ type PieceResponse {
     name: String
     link: Url
     duration: Long
+    type: Source
+}
+
+enum Source {
+    YOUTUBE
+    SOUNDCLOUD
+    UPLOADED
 }
 
 type Query {
