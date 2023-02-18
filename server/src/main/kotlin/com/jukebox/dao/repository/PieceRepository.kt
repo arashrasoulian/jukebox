@@ -1,8 +1,18 @@
 package com.jukebox.dao.repository
 
+import com.jukebox.RedisConfiguration
 import com.jukebox.dao.entity.Piece
-import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.stereotype.Repository
+import org.springframework.stereotype.Service
+import java.net.URL
 
-@Repository
-interface PieceRepository : JpaRepository<Piece, Long>
+@Service
+class PieceRepository(redisConfiguration: RedisConfiguration) : ReactiveRedisRepository<Piece>(
+    "piece",
+    redisConfiguration.redisOperationsForValue(Piece::class)
+) {
+    //dummy data to test with
+    init {
+        store(Piece("1", "soundcloud", URL("https://soundcloud.com/frolov-ua/ream-daranoi-fai-yen-frolov-edit"), 0L)).block()
+        store(Piece("2", "soundcloud", URL("https://www.youtube.com/watch?v=V7yKT6tkpV4"), 0L)).block()
+    }
+}

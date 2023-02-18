@@ -35,8 +35,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     kapt("org.springframework.boot:spring-boot-configuration-processor:2.7.5")
 
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    runtimeOnly("com.h2database:h2")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("com.newrelic.logging:log4j2:2.6.0")

@@ -1,11 +1,7 @@
 spring:
-  datasource:
-    url: jdbc:h2:file:./data.h2
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: create
-    defer-datasource-initialization: true
-  sql:
-    init:
-      mode: always
+  redis:
+    client-type: lettuce
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
+      adjust-dates-to-context-time-zone: false
