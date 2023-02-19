@@ -3,7 +3,7 @@ type PieceResponse {
     name: String
     link: Url
     duration: Long
-    type: Source
+    source: Source
 }
 
 enum Source {
