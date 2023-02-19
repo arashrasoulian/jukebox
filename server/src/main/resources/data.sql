@@ -1,0 +1,2 @@
+INSERT INTO piece (id, name, link, duration) VALUES (1, 'soundcloud', 'https://soundcloud.com/frolov-ua/ream-daranoi-fai-yen-frolov-edit', 5);
+INSERT INTO piece (id, name, link, duration) VALUES (2, 'youtube', 'https://www.youtube.com/watch?v=V7yKT6tkpV4', 5);

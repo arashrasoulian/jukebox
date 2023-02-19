@@ -1,0 +1,31 @@
+type PieceResponse {
+    id: ID!
+    name: String
+    link: Url
+    duration: Long
+    type: Source
+}
+
+enum Source {
+    YOUTUBE
+    SOUNDCLOUD
+    UPLOADED
+}
+
+type Query {
+    piece(id: ID!): PieceResponse
+}
+
+input PieceInput {
+    name: String!
+    link: Url!
+}
+
+type MutationResolver {
+    piece(piece: PieceInput): String
+}
+
+schema {
+    query: Query
+    mutation: MutationResolver
+}
