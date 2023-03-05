@@ -1,37 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  HttpLink,
+  from,
+} from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
+import { Home } from "./pages/home";
 
-class App extends Component {
-  state = {
-    message: null,
-  };
-
-  componentDidMount() {
-    fetch('/api/graphql', {
-      method: 'POST',
-      body: JSON.stringify({ 'query': `{ example { message } }`, 'variables': null, 'operationName': null }),
-    })
-      .then(response => response.json())
-      .then(response => {this.setState({ message: response.data.example.message })});
+const errorLink = onError(({ graphqlErrors, networkError }) => {
+  if (graphqlErrors) {
+    graphqlErrors.map(({ message, location, path }) => {
+      alert(`Graphql error ${message}`);
+    });
   }
+});
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Message from backend: {this.state.message}
-        </p>
-      </div>
-    );
-  }
+const link = from([
+  errorLink,
+  new HttpLink({ uri: "http://localhost:8080/graphql" }),
+]);
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: link,
+});
+
+function App() {
+  return (
+    <ApolloProvider client={client}>
+      <Home />
+    </ApolloProvider>
+  );
 }
 
 export default App;
